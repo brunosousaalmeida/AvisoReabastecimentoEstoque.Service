@@ -81,5 +81,11 @@
       <DependentUpon>Service1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="AvisoReabastecimentoEstoque.Model\AvisoReabastecimentoEstoque.Model.csproj">
+      <Project>{7111e88e-bfbf-4312-9666-8107933334d8}</Project>
+      <Name>AvisoReabastecimentoEstoque.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
