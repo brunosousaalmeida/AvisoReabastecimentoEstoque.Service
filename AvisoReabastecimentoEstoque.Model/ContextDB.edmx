@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ServiceAvisoReabastecimentoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvisoReabastecimento">
+          <Key>
+            <PropertyRef Name="AvData" />
+            <PropertyRef Name="AvCodigoProduto" />
+          </Key>
+          <Property Name="AvData" Type="datetime" Nullable="false" />
+          <Property Name="AvCodigoProduto" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="AvHistorico" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailAuto">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="ProCodigo" />
+          </Key>
+          <Property Name="ProCodigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProdNome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProAvisaRessup" Type="bit" Nullable="false" />
+          <Property Name="ProQtdEstoque" Type="int" Nullable="false" />
+          <Property Name="ProQtdAvisa" Type="int" Nullable="false" />
+          <Property Name="ProQtdAviso" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ServiceAvisoReabastecimento.dbo.vw_PendenteAviso' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_PendenteAviso">
+          <Key>
+            <PropertyRef Name="ProCodigo" />
+            <PropertyRef Name="ProdNome" />
+            <PropertyRef Name="ProAvisaRessup" />
+            <PropertyRef Name="ProQtdEstoque" />
+            <PropertyRef Name="ProQtdAvisa" />
+            <PropertyRef Name="ProQtdAviso" />
+          </Key>
+          <Property Name="ProCodigo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProdNome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProAvisaRessup" Type="bit" Nullable="false" />
+          <Property Name="ProQtdEstoque" Type="int" Nullable="false" />
+          <Property Name="ProQtdAvisa" Type="int" Nullable="false" />
+          <Property Name="ProQtdAviso" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AvisoReab__AvCod__286302EC">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="AvisoReabastecimento" Type="Self.AvisoReabastecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="ProCodigo" />
+            </Principal>
+            <Dependent Role="AvisoReabastecimento">
+              <PropertyRef Name="AvCodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServiceAvisoReabastecimentoModelStoreContainer">
+          <EntitySet Name="AvisoReabastecimento" EntityType="Self.AvisoReabastecimento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailAuto" EntityType="Self.EmailAuto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_PendenteAviso" EntityType="Self.vw_PendenteAviso" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_PendenteAviso].[ProCodigo] AS [ProCodigo], 
+    [vw_PendenteAviso].[ProdNome] AS [ProdNome], 
+    [vw_PendenteAviso].[ProAvisaRessup] AS [ProAvisaRessup], 
+    [vw_PendenteAviso].[ProQtdEstoque] AS [ProQtdEstoque], 
+    [vw_PendenteAviso].[ProQtdAvisa] AS [ProQtdAvisa], 
+    [vw_PendenteAviso].[ProQtdAviso] AS [ProQtdAviso]
+    FROM [dbo].[vw_PendenteAviso] AS [vw_PendenteAviso]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__AvisoReab__AvCod__286302EC" Association="Self.FK__AvisoReab__AvCod__286302EC">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="AvisoReabastecimento" EntitySet="AvisoReabastecimento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServiceAvisoReabastecimentoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AvisoReabastecimento">
+          <Key>
+            <PropertyRef Name="AvData" />
+            <PropertyRef Name="AvCodigoProduto" />
+          </Key>
+          <Property Name="AvData" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AvCodigoProduto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AvHistorico" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Produto" Relationship="Self.FK__AvisoReab__AvCod__286302EC" FromRole="AvisoReabastecimento" ToRole="Produto" />
+        </EntityType>
+        <EntityType Name="EmailAuto">
+          <Key>
+            <PropertyRef Name="Email" />
+          </Key>
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="ProCodigo" />
+          </Key>
+          <Property Name="ProCodigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProAvisaRessup" Type="Boolean" Nullable="false" />
+          <Property Name="ProQtdEstoque" Type="Int32" Nullable="false" />
+          <Property Name="ProQtdAvisa" Type="Int32" Nullable="false" />
+          <Property Name="ProQtdAviso" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AvisoReabastecimento" Relationship="Self.FK__AvisoReab__AvCod__286302EC" FromRole="Produto" ToRole="AvisoReabastecimento" />
+        </EntityType>
+        <EntityType Name="vw_PendenteAviso">
+          <Key>
+            <PropertyRef Name="ProCodigo" />
+            <PropertyRef Name="ProdNome" />
+            <PropertyRef Name="ProAvisaRessup" />
+            <PropertyRef Name="ProQtdEstoque" />
+            <PropertyRef Name="ProQtdAvisa" />
+            <PropertyRef Name="ProQtdAviso" />
+          </Key>
+          <Property Name="ProCodigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProdNome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProAvisaRessup" Type="Boolean" Nullable="false" />
+          <Property Name="ProQtdEstoque" Type="Int32" Nullable="false" />
+          <Property Name="ProQtdAvisa" Type="Int32" Nullable="false" />
+          <Property Name="ProQtdAviso" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AvisoReab__AvCod__286302EC">
+          <End Role="Produto" Type="Self.Produto" Multiplicity="1" />
+          <End Role="AvisoReabastecimento" Type="Self.AvisoReabastecimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produto">
+              <PropertyRef Name="ProCodigo" />
+            </Principal>
+            <Dependent Role="AvisoReabastecimento">
+              <PropertyRef Name="AvCodigoProduto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServiceAvisoReabastecimentoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AvisoReabastecimento" EntityType="Self.AvisoReabastecimento" />
+          <EntitySet Name="EmailAuto" EntityType="Self.EmailAuto" />
+          <EntitySet Name="Produto" EntityType="Self.Produto" />
+          <EntitySet Name="vw_PendenteAviso" EntityType="Self.vw_PendenteAviso" />
+          <AssociationSet Name="FK__AvisoReab__AvCod__286302EC" Association="Self.FK__AvisoReab__AvCod__286302EC">
+            <End Role="Produto" EntitySet="Produto" />
+            <End Role="AvisoReabastecimento" EntitySet="AvisoReabastecimento" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServiceAvisoReabastecimentoModelStoreContainer" CdmEntityContainer="ServiceAvisoReabastecimentoEntities">
+          <EntitySetMapping Name="AvisoReabastecimento">
+            <EntityTypeMapping TypeName="ServiceAvisoReabastecimentoModel.AvisoReabastecimento">
+              <MappingFragment StoreEntitySet="AvisoReabastecimento">
+                <ScalarProperty Name="AvData" ColumnName="AvData" />
+                <ScalarProperty Name="AvCodigoProduto" ColumnName="AvCodigoProduto" />
+                <ScalarProperty Name="AvHistorico" ColumnName="AvHistorico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailAuto">
+            <EntityTypeMapping TypeName="ServiceAvisoReabastecimentoModel.EmailAuto">
+              <MappingFragment StoreEntitySet="EmailAuto">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produto">
+            <EntityTypeMapping TypeName="ServiceAvisoReabastecimentoModel.Produto">
+              <MappingFragment StoreEntitySet="Produto">
+                <ScalarProperty Name="ProCodigo" ColumnName="ProCodigo" />
+                <ScalarProperty Name="ProdNome" ColumnName="ProdNome" />
+                <ScalarProperty Name="ProAvisaRessup" ColumnName="ProAvisaRessup" />
+                <ScalarProperty Name="ProQtdEstoque" ColumnName="ProQtdEstoque" />
+                <ScalarProperty Name="ProQtdAvisa" ColumnName="ProQtdAvisa" />
+                <ScalarProperty Name="ProQtdAviso" ColumnName="ProQtdAviso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_PendenteAviso">
+            <EntityTypeMapping TypeName="ServiceAvisoReabastecimentoModel.vw_PendenteAviso">
+              <MappingFragment StoreEntitySet="vw_PendenteAviso">
+                <ScalarProperty Name="ProCodigo" ColumnName="ProCodigo" />
+                <ScalarProperty Name="ProdNome" ColumnName="ProdNome" />
+                <ScalarProperty Name="ProAvisaRessup" ColumnName="ProAvisaRessup" />
+                <ScalarProperty Name="ProQtdEstoque" ColumnName="ProQtdEstoque" />
+                <ScalarProperty Name="ProQtdAvisa" ColumnName="ProQtdAvisa" />
+                <ScalarProperty Name="ProQtdAviso" ColumnName="ProQtdAviso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

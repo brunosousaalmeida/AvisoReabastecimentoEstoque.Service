@@ -34,6 +34,7 @@ namespace ReabastecimentoEstoque.Service
             // 
             // serviceProcessInstaller1
             // 
+            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalService;
             this.serviceProcessInstaller1.Password = null;
             this.serviceProcessInstaller1.Username = null;
             // 
@@ -42,7 +43,7 @@ namespace ReabastecimentoEstoque.Service
             this.serviceInstaller1.Description = "Serviço para realizar aviso de reabastecimento baseado em nível de estoque, atrav" +
     "és do envio de e-mails.";
             this.serviceInstaller1.DisplayName = "Aviso Reabastecimento Estoque";
-            this.serviceInstaller1.ServiceName = "Service1";
+            this.serviceInstaller1.ServiceName = "Aviso Reabastecimento Estoque";
             // 
             // ProjectInstaller
             // 
