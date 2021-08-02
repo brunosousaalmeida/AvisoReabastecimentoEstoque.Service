@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvisoReabastecimentoEstoque.Service", "AvisoReabastecimentoEstoque.Service.csproj", "{CB724A25-FF5F-406E-82A1-483D0F53A25C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB724A25-FF5F-406E-82A1-483D0F53A25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB724A25-FF5F-406E-82A1-483D0F53A25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB724A25-FF5F-406E-82A1-483D0F53A25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB724A25-FF5F-406E-82A1-483D0F53A25C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A6653C7-C9A7-457C-9C99-B966FDE7163E}
+	EndGlobalSection
+EndGlobal
