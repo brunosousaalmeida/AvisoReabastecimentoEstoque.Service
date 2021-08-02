@@ -13,7 +13,7 @@ namespace AvisoReabastecimentoEstoque.Model
         public void EnviarEmail()
         {
             MailMessage objEmail = new MailMessage();
-            objEmail.From = new MailAddress("");
+            objEmail.From = new MailAddress("dev.mail.teste2@gmail.com");
             //objEmail.ReplyTo = "";
             MailAddress email = new MailAddress("bruno.almeida.developer@gmail.com");
 

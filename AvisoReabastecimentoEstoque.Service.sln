@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvisoReabastecimentoEstoque
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvisoReabastecimentoEstoque.Model", "AvisoReabastecimentoEstoque.Model\AvisoReabastecimentoEstoque.Model.csproj", "{7111E88E-BFBF-4312-9666-8107933334D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvisoReabastecimento.TesteUnitario", "..\AvisoReabastecimento.TesteUnitario\AvisoReabastecimento.TesteUnitario.csproj", "{D08F17E8-D133-4265-8C51-5850EE430862}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7111E88E-BFBF-4312-9666-8107933334D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7111E88E-BFBF-4312-9666-8107933334D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7111E88E-BFBF-4312-9666-8107933334D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D08F17E8-D133-4265-8C51-5850EE430862}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D08F17E8-D133-4265-8C51-5850EE430862}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D08F17E8-D133-4265-8C51-5850EE430862}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D08F17E8-D133-4265-8C51-5850EE430862}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
