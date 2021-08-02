@@ -76,6 +76,9 @@
       <DependentUpon>ContextDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Repository_AvisoReabastecimento.cs" />
+    <Compile Include="Repositories\Repository_EmailAuto.cs" />
+    <Compile Include="Repositories\Repository_Produto.cs" />
     <Compile Include="vw_PendenteAviso.cs">
       <DependentUpon>ContextDB.tt</DependentUpon>
     </Compile>
